@@ -3,6 +3,8 @@ var colors =  require('colors');
 
 var server = net.createServer();
 
+const port = process.env.PORT || 9000;
+
 server.on('connection', (socket)=>{
   var remoteAddress =  socket.remoteAddress + ':' + socket.remotePort;
   console.log("New client connection is made %s".green, remoteAddress);
@@ -19,6 +21,6 @@ server.on('connection', (socket)=>{
   });
 });
 
-server.listen(9000, ()=>{
+server.listen(port, ()=>{
   console.log('Server listening to %j', server.address());
 });
